@@ -32,21 +32,27 @@ bool Affichage::init() {
     return true;
 }
 
-void Affichage::drawGrid()
-{
+void Affichage::drawGrid() {
     SDL_SetRenderDrawColor(pRenderer, 0, 0, 0, 255);
     SDL_RenderClear(pRenderer);
 
     for (int row = 0; row < 4; ++row) {
         for (int col = 0; col < 4; ++col) {
             SDL_Rect tileRect = { col * 180, row * 180, 180, 180 };
-            SDL_SetRenderDrawColor(pRenderer, 255, 255, 255, 255);
+
+            // Définir la couleur de fond en marron clair (RGB 204, 153, 102)
+            SDL_SetRenderDrawColor(pRenderer, 204, 153, 102, 255);
             SDL_RenderFillRect(pRenderer, &tileRect);
+
+            // Définir la couleur de la bordure en marron foncé (RGB 102, 51, 0)
+            SDL_SetRenderDrawColor(pRenderer, 102, 51, 0, 255);
+            SDL_RenderDrawRect(pRenderer, &tileRect);
         }
     }
 
     SDL_RenderPresent(pRenderer);
 }
+
 
 void Affichage::close()
 {
@@ -54,5 +60,6 @@ void Affichage::close()
     SDL_DestroyWindow(pWindow);
     SDL_Quit();
 }
+
 
 
