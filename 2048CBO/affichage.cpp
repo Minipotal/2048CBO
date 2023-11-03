@@ -40,11 +40,9 @@ void Affichage::drawGrid() {
         for (int col = 0; col < 4; ++col) {
             SDL_Rect tileRect = { col * 180, row * 180, 180, 180 };
 
-            // Définir la couleur de fond en marron clair (RGB 204, 153, 102)
             SDL_SetRenderDrawColor(pRenderer, 204, 153, 102, 255);
             SDL_RenderFillRect(pRenderer, &tileRect);
 
-            // Définir la couleur de la bordure en marron foncé (RGB 102, 51, 0)
             SDL_SetRenderDrawColor(pRenderer, 102, 51, 0, 255);
             SDL_RenderDrawRect(pRenderer, &tileRect);
         }
